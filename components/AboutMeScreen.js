@@ -228,13 +228,13 @@ textinput: {
   
 },
 button: {
-  height: 30,
-  marginBottom: 30,
+  // height: 10,
+  marginBottom: 10,
   alignItems: "center",
 },
 title: {
   fontSize: 24,
-  fontFamily: 'ShadowsIntoLight-Regular'
+
 }
 });
 

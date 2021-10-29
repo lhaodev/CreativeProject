@@ -42,10 +42,10 @@ const FindMyRoommateScreen = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-    <View style={{flex:1}}>
+    {/* <View style={{flex:1}}>
       <View style={styles.filter}>
         <Text style={{fontSize:20}}>Filter by    
-        <br/>
+     
         <TextInput
           style={{height: 40}}
           placeholder=" male or female"
@@ -60,7 +60,7 @@ const FindMyRoommateScreen = (props) => {
         title="Check"
         />
       </View>
-    </View>
+    </View> */}
 
     <View style={{ flex:8}}>
       <View style={{flexDirection:'row'}}>
