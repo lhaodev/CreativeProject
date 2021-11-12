@@ -42,6 +42,7 @@ function App() {
         <Tab.Screen name="Find My Roommate" component={FindMyRoommateScreen} />
         <Tab.Screen name="About Me" component={AboutMeScreen} />
       </Tab.Navigator>
+      
     </NavigationContainer>
   );
 }

@@ -1,6 +1,7 @@
 
-import React, { useState, useEffect } from "react";
-import {Button, Text, TextInput, View,StatusBar, StyleSheet, FlatList, SafeAreaView } from "react-native";
+import React, { useState, useEffect} from "react";
+import {Button, Text, TextInput, View,StatusBar, StyleSheet, FlatList, SafeAreaView, ScrollView } from "react-native";
+
 
 
 const FindMyRoommateScreen = (props) => {
@@ -8,7 +9,7 @@ const FindMyRoommateScreen = (props) => {
   const [gender, setGender] = useState('');
   const [text, setText] = useState('');
   const [data,setData] = useState([]);
-  
+ 
 
   useEffect(() => {
     fetch('https://randomuser.me/api/?results=25&nat=us&gender='+gender)
@@ -29,8 +30,7 @@ const FindMyRoommateScreen = (props) => {
         <Text style={{flex:1,textAlign:'center'}}>{item.name.first + " "+ item.name.last}</Text>
         <Text style={{flex:1,textAlign:'center'}}>{item.gender}</Text>
         <Text style={{flex:1,textAlign:'center'}}>{item.dob.age}</Text>
-        <Text style={{flex:1,textAlign:'center'}}>{item.location.city +", "+ item.location.state}</Text>
-        
+        <Text style={{flex:1,textAlign:'center'}}>{item.location.city +", "+ item.location.state}</Text>  
      </View>
   )}
   
@@ -42,6 +42,7 @@ const FindMyRoommateScreen = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
+
     {/* <View style={{flex:1}}>
       <View style={styles.filter}>
         <Text style={{fontSize:20}}>Filter by    
@@ -75,6 +76,7 @@ const FindMyRoommateScreen = (props) => {
         keyExtractor={item => item.login.uuid}
       />
     </View>
+  
     </SafeAreaView>
   );
 }

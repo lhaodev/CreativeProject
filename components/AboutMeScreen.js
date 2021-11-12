@@ -1,9 +1,17 @@
 import * as React from 'react';
-import { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, SectionList, StatusBar  } from 'react-native';
+import { useState, useEffect, useContext } from "react";
+import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, SectionList, ScrollView,RefreshControl  } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import FunctionContextComponent from './FunctionContextComponent';
+import { ThemeProvider } from './ThemeContext';
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
+
 const AboutMeScreen = () => {
+
+
 const [info, setInfo] = useState({gender:'',age:'', 
 city:'',stateGeo:'', habit:'',});
 const [gender, setGender] = useState('');
@@ -11,9 +19,19 @@ const [age,setAge] = useState('');
 const [city, setCity] = useState('');
 const [stateGeo,setStateGeo] = useState('');
 const [habit,setHabit] = useState('');
+const [refreshing, setRefreshing] = React.useState(false);
+
+const onRefresh = React.useCallback(() => {
+  setRefreshing(true);
+  wait(2000).then(() => setRefreshing(false));
+}, []);
+
+
 
 useEffect(() => {getData()}
 ,[])
+
+
 
 
 const getData = async () => {
@@ -87,6 +105,17 @@ const getData = async () => {
 
   return (
  <SafeAreaView style={[styles.container, {flexDirection: "column"}]}>
+         <ScrollView
+        contentContainerStyle={styles.scrollView}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
+        }
+      >
+   <ThemeProvider>
+     <FunctionContextComponent/>
   {/* header */}
     <View style= {{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
        <Text style={styles.title}>Personal Information</Text>
@@ -99,6 +128,7 @@ const getData = async () => {
                  style={{width:'50%',height:'50%'}}/>
             </View>
 
+            
 
           {/* put in data */}
             <View style= {{flex:3 , alignItems: 'flex-start', justifyContent: 'flex-start'}}>
@@ -191,6 +221,8 @@ const getData = async () => {
     </View>
   </View>
 </View>
+</ThemeProvider>
+</ScrollView>
 </SafeAreaView>
 
 );
@@ -200,7 +232,8 @@ const getData = async () => {
 
 
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create(
+  {
 container: {
   flex: 1,
   flexDirection:'column',
@@ -236,7 +269,11 @@ title: {
   fontSize: 24,
 
 }
-});
+
+
+}
+
+);
 
 
 export default AboutMeScreen;
