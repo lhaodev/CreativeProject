@@ -3,9 +3,9 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './components/HomeScreen';
-import AboutMeScreen from './components/AboutMeScreen';
-import FindMyRoommateScreen from './components/FindMyRoommateScreen';
+import LoginScreen from './components/LoginScreen';
+import GroceryList from './components/GroceryList';
+import Recipes from './components/Recipes';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -25,10 +25,10 @@ function App() {
                 ? 'ios-information-circle'
                 : 'ios-list';
             } 
-            else if (route.name === 'Find My Roommate') {
+            else if (route.name === 'CocktailDB') {
               iconName = focused ? 'ios-star' : 'ios-list';
             } 
-            else if (route.name === 'About Me') {
+            else if (route.name === 'Grocery List') {
               iconName = focused ? 'ios-heart' : 'ios-list';
             }
 
@@ -38,9 +38,10 @@ function App() {
           tabBarActiveTintColor: '#89CFF0',
           tabBarInactiveTintColor: 'gray',
         })}>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Find My Roommate" component={FindMyRoommateScreen} />
-        <Tab.Screen name="About Me" component={AboutMeScreen} />
+        <Tab.Screen name="Home" component={LoginScreen} />
+        {/* <Tab.Screen name="Find My Roommate" component={FindMyRoommateScreen} /> */}
+        <Tab.Screen name="CocktailDB" component={Recipes} />
+        <Tab.Screen name="Grocery List" component={GroceryList} />
       </Tab.Navigator>
       
     </NavigationContainer>

@@ -22,7 +22,7 @@
 
   ## Description
 
-  A react native app that helps you connect with people nearby so you can find people that share the similar life styles as you do and become roommates. 
+  A react native app that helps find a cocktail recipe and add ingridients to your grocery list. 
 
   ## Links
 
@@ -32,9 +32,9 @@
 
   ![homescreen](./screenshots/homescreen.png)
 
-  ![findmyroommatescreen](./screenshots/peoplelist.png)
+  ![recipe](./screenshots/drinklist.png)
 
-  ![personinfoscreen](./screenshots/personalInfo.png)
+  ![grocery list](./screenshots/grocerylist.png)
 
   ## Developers
 
@@ -42,7 +42,7 @@
 
   ## Usage
 
-  FindMyRoommate is designed as react native app that helps you connect with people nearby so you can find people that share the similar life styles as you do and become roommates from your phone.
+  Make a Cocktail is designed as react native app that helps you find a cocktail recipe and add the ingredients to your grocery list.
 
   To use this application once installed, the user installs all the packages using
 
